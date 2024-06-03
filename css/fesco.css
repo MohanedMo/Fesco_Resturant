@@ -1,0 +1,487 @@
+/* Global Style */
+html{
+    scroll-behavior: smooth;
+}
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Work Sans', sans-serif;
+    text-transform: capitalize;
+}
+@media (min-width: 769px){
+    .container{
+        width: 750px;
+    }
+}
+@media (min-width: 993px){
+    .container{
+        width: 970px;
+    }
+}
+@media (min-width: 1200px){
+    .container{
+        width: 1170px;
+    }
+}
+:root{
+    --main-color: #bf9e7b; 
+    --background-color: #141723;
+    --bottun-color: #be9d7a;
+    --padding-size: 60px;
+    --font-style: 'Yesteryear', cursive;
+}
+/* ............. Components Style ............... */
+.container{
+    padding: 0 15px;
+    margin: 0 auto;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+.grid{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+.main-heading{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.main-heading h1{
+    font-family:'Yesteryear', cursive;
+}
+/* ............. Top Button Style ............... */
+.topBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 5; 
+    border: none; 
+    outline: none; 
+    background-color: var(--main-color); 
+    cursor: pointer;
+    padding: 10px 15px; 
+    border-radius: 10px; 
+    font-size: 20px; 
+}
+.topBtn div{
+    animation-name: arrow;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    font-weight: 900;
+    color: #fff;
+}
+
+.topBtn:hover {
+    background-color: var(); 
+}
+@keyframes arrow {
+    0%   {transform: translateY(0px);}
+    50% {transform: translateY(-7px);}
+    100% {transform: translateY(0px);}
+  }
+
+/* ............. Header Style ............... */
+header{
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:1px solid #fff ;
+}
+header .container .logo h1{
+    color: #fff;
+    font-family: 'Yesteryear', cursive;
+}
+header .container nav{
+    display: flex;
+}
+header .container nav i{
+    color: #fff;
+    display: none;
+}
+header .container nav ul{
+    display: flex;
+}
+header .container nav ul li{
+    margin-left: 20px;
+}
+header .container nav ul li a{
+    color: #fff;
+    transition: 0.3s;
+}
+header .container nav ul li a:hover{
+    color: var(--main-color);
+}
+@media (max-width: 767px) {
+    header .container nav i{
+        display: block;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    header .container nav ul{
+        display: none;
+    }
+    header .container nav .show{
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--main-color);
+        z-index: 3;
+    }
+    header .container nav .show::before{
+        content: "";
+        position: absolute;
+        border-color: transparent transparent var(--main-color) transparent;
+        border-width: 15px;
+        border-style: solid;
+        top: -30px;
+        right: 12px;
+    }
+    header .container nav ul li{
+        transition: 0.3s;
+        padding: 10px;
+        margin-left: 0;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    header .container nav ul li:last-child{
+        margin-bottom: 5px;
+    }
+    header .container nav ul li:hover{
+        padding-left: 15px;
+        border-bottom: 2px solid #000
+    }
+    header .container nav ul li:hover a{
+        transition: 0.3s;
+        padding-left: 20px;
+        color: #000;
+    }
+}
+/* ............. Landing Style ............... */
+.landing{
+    background-image: url("../images/ezgif.com-gif-maker.webp");
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 50%);
+}
+.landing .container .text{
+    position: absolute;
+    top: 50%;
+    transform:translateY(-50%);
+    z-index: 1;
+}
+.landing .container .text h1{
+    color: var(--main-color);
+    font-size: 40px;
+    font-family: var(--font-style);
+}
+.landing .container .text h3,
+.landing .container .text p{
+    color: #fff;
+}
+/* ............. About Style ............... */
+.about{
+    padding-top: var(--padding-size);
+    padding-bottom: var(--padding-size);
+}
+.about .container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about .container div:first-child{
+    flex-basis: 50%;
+}
+.about .container div:last-child{
+    flex-basis: 35%;
+}
+.about .container .text{
+    text-align: center;
+    line-height: 2;
+}
+.about .container .text h1{
+    font-family: var(--font-style);
+    font-size: 40px;
+    color: var(--main-color);
+}
+.about .container .text p:nth-child(3){
+    margin-bottom: 35px;
+}
+.about .container .text p:nth-child(4){
+    margin-bottom: 35px;
+}
+.about .container .info .contact{
+    padding: 20px;
+    background-color: #000;
+    margin-bottom: 25px;
+    color: #fff;
+    margin-top: calc(-50% + -60px);
+    position: relative;
+    z-index: 3;
+}
+.about .container .info .contact h2{
+    color: var(--main-color);
+    margin-top: 0;
+}
+.about .container .info .contact h3{
+    text-transform: uppercase;
+}
+.about .container .info .contact a:first-of-type{
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+.about .container .info .contact a:first-of-type:hover{
+    color: #fff;
+}
+.about .container .info .contact p:nth-of-type(5){
+    font-size: 15px;
+}
+.about .container .info .contact p:nth-of-type(6){
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.about .container .info .contact a:last-of-type{
+    position: relative;
+    left: 50%;
+    bottom: 0;
+    margin-left: -85px;
+    text-align: center;
+    color: var(--main-color);
+    padding: 10px 20px;
+    /* border: 1px solid var(--main-color); */
+    transition: 0.3s;
+}
+.about .container .info .contact a:last-of-type:hover{
+    color: #fff;
+}
+@media (max-width: 767px) {
+    .about .container{
+        flex-direction: column;
+    }
+    .about .container .info .contact{
+        margin-top: 30px;
+    }
+    .about .container .info img{
+        display: none;
+    }
+}
+/* ............. Specialities Style ............... */
+.Specialities{
+    padding-top: var(--padding-size);
+    padding-bottom: var(--padding-size);
+    background-image: url("../images/ezgif.com-gif-maker (3).webp");
+    background-size: cover;
+}
+.Specialities .main-heading h1{
+    color: #fff;
+}
+.Specialities .grid .col p{
+    color: var(--main-color);
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    margin-top: -4px;
+}
+/* ............. Menu Style ............... */
+.menu{
+    padding-top: var(--padding-size);
+    padding-bottom: var(--padding-size);
+    background-color: var(--background-color);
+    color: #fff;
+}
+.menu .container .main-heading h1{
+    color: var(--main-color);
+}
+.menu .container div:not(:first-child) .flex{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.menu .container div:not(:first-child) .flex .col{
+    flex-basis: 47%;
+}
+.menu .container div:not(:first-child) h2{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-top: 60px;
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+.menu .container .flex .col > div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+.menu .container .flex .col > div .text{
+    flex-grow: 1;
+}
+.menu .container div:not(:first-child) div h3{
+    text-transform: uppercase;
+}
+.menu .container .flex .col > div .price{
+    color: var(--main-color);
+    font-size: 2em;
+}
+.menu .container .flex .col > div .price span{
+    margin-top: -10px;
+}
+.menu .container > a{
+    display: inline-block;
+    position: relative;
+    margin-top: 60px;
+    text-align: center;
+    left: 50%;
+    transform: translatex(-50%);
+    padding: 15px 40px;
+    background-color: var(--bottun-color);
+    color: #000;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+.menu .container > a:hover{
+    color: #fff;
+}
+@media (max-width: 767px) {
+    .menu .container div:not(:first-child) .flex{
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+}
+/* ............. Reservation Style ............... */
+.reservation{
+    padding-top: var(--padding-size);
+    padding-bottom: var(--padding-size);
+    background-image: url("../images/ezgif.com-gif-maker.webp");
+}
+.reservation .container .main-heading{
+    color: #fff;
+}
+.reservation .container .flex{
+    display: flex;
+    justify-content: space-between;
+}
+.reservation .container .flex form{
+    width: calc(95% / 3);
+    display: flex;
+    flex-direction: column;
+}
+.reservation .container .flex form label{
+    color: #fff;
+}
+.reservation .container .flex form input,
+.reservation .container .flex form select{
+    height: 50px;
+}
+.reservation .container > a{
+    display: inline-block;
+    position: relative;
+    margin-top: 60px;
+    text-align: center;
+    left: 50%;
+    transform: translatex(-50%);
+    padding: 15px 40px;
+    background-color: var(--bottun-color);
+    color: #000;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+.reservation .container > a:hover{
+    color: #fff;
+}
+@media (max-width: 767px) {
+    .reservation .container .flex{
+        flex-direction: column;
+        align-items: center;
+    }
+    .reservation .container .flex form{
+        width: 100%
+    }
+    .reservation .container .flex form label{
+        margin-top: 15px;
+    }
+}
+/* ............. Footer Style ............... */
+footer{
+    padding-top: 30px;
+    padding-bottom: var(--padding-size);
+    background-color: var(--background-color);
+}
+footer .container .grid{
+    justify-content: space-between;
+}
+footer .container .grid .col{
+    color: #fff;
+    position: relative;
+}
+footer .container .grid .col h3{
+    text-transform: uppercase;
+}
+footer .container .grid .col > a{
+    position: absolute;
+    bottom: -45px;
+    padding: 10px 20px;
+    border: 1px solid var(--bottun-color);
+    color: #fff;
+    transition: 0.3s;
+}
+footer .container .grid .col > a:hover{
+    background-color: var(--bottun-color);
+    color: #000;
+}
+footer .container .grid .col .social{
+    position: absolute;
+    bottom: -35px;
+}
+footer .container .grid .col .social a{
+    padding: 10px;
+    border: 1px solid var(--bottun-color);
+    color: #fff;
+    transition: 0.3s;
+    margin-left: 5px;
+}
+footer .container .grid .col .social a:hover{
+    background-color: var(--bottun-color);
+    color: #000;
+}
+@media (max-width: 767px) {
+    footer .container .grid .col{
+        margin-top: 30px;
+    }
+}
